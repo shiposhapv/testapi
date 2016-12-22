@@ -12,7 +12,8 @@ class Curl
     public $respons;
     public $url;
     public $data;
-    public $metod = 'POST';
+    public $metod = 'GET';
+    public $header;
 
     public function setParameters($params)
     {
@@ -27,21 +28,19 @@ class Curl
         if (isset($params['metod'])) {
             $this->metod = $params['metod'];
         }
+        if (!empty($params['header'])) {
+            $this->header = $params['header'];
+        }
 
     }
 
     public function sendRequest()
     {
-        if ($curl = curl_init() && !empty($this->url)) {
-            curl_setopt($curl, CURLOPT_URL, $this->url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_POST, true);
-            if (isset($this->data)) {
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $this->data);
-            }
-            $this->respons = curl_exec($curl);
-            curl_close($curl);
-        }
+        $handle = curl_init($this->url);
+        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($handle);
+        $this->respons = json_decode($response, true);
+        curl_close($handle);
 
     }
 

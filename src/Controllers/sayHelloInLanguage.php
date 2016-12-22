@@ -9,23 +9,30 @@
 class sayHelloInLanguage extends abstractBaseComtroller
 {
     const HELLO_STR = 'Hello ';
+    const googleApiKey = 'Hello ';
+
     public function action($params)
     {
-$text = self::HELLO_STR. $params['name'];
+        $text = self::HELLO_STR . $params['name'];
         $curl = new Curl();
-        $params = [
-            'url' => 'https://translate.google.com.ua/',
-            'text' => $text
+        $data = [
+            'url' => 'https://www.googleapis.com/language/translate/v2?key=AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM&q=' . rawurlencode($text) . '&source=ru&target=' . $params['language'],
+            'data' => [
+                'q' => $text,
+                'key' => self::googleApiKey,
+                'target' => $params['language']
+            ],
         ];
-        $curl->setParameters($params);
+        $curl->setParameters($data);
+        $curl->sendRequest();
         $data = $curl->getRespons();
-        if(!empty($data)){
+        if (!empty($data) && isset($data["data"]['translations'][0])) {
             $result = [
-                'status'=> 'Success',
-                'msg' => $data
+                'status' => 'Success',
+                'msg' => $data["data"]['translations'][0]['translatedText']
             ];
             $this->response->setStatus(200);
-        }else{
+        } else {
 
             $result = [
                 'status' => '“Error”',

@@ -16,6 +16,9 @@ $confVAlidator = [
                 ],
                 'checkRegex' => [
                     'regex' => ''
+                ],
+                'issetParam' => [
+                    true
                 ]
             ]
         ],
@@ -29,6 +32,9 @@ $confVAlidator = [
                 'checkRegex' => [
                     'regex' => ''
                 ]
+            ],
+            'language' => [
+                'inArray' => ['iw', 'ja', 'en']
             ]
         ]
 ];

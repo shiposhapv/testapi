@@ -62,8 +62,23 @@ class Validator
     public function checkRegex($string, $regex)
     {
 
-
-
     }
 
+    public function inArray($string, $array)
+    {
+        if (!in_array($string, $array)) {
+            $this->error[] = 'Language is not correct';
+        }
+    }
+
+    public function issetParam($value, $name){
+        if(!isset($value)){
+            $this->error[] = 'Not found requirement parameter';
+        }
+    }
+
+    public function __call($name, $arguments)
+    {
+        // TODO: Implement __call() method.
+    }
 }
