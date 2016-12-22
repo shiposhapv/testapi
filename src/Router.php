@@ -14,9 +14,8 @@ $confVAlidator = [
                     'min' => 2,
                     'max' => 15
                 ],
-                'checkRegex' => [
-                    'regex' => ''
-                ],
+                'uniqueLetter' => 2
+                ,
                 'issetParam' => [
                     true
                 ]
@@ -29,9 +28,8 @@ $confVAlidator = [
                     'min' => 2,
                     'max' => 15
                 ],
-                'checkRegex' => [
-                    'regex' => ''
-                ]
+                'uniqueLetter' => 2
+
             ],
             'language' => [
                 'inArray' => ['iw', 'ja', 'en']

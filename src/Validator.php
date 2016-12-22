@@ -58,6 +58,13 @@ class Validator
 
     }
 
+    public function uniqueLetter($string, $count)
+    {
+        $countLit = count(array_unique(str_split($string)));
+        if ($countLit<$count) {
+            $this->error[] = "Should contain at least $count different letters";
+        }
+    }
 
     public function checkRegex($string, $regex)
     {
@@ -71,8 +78,9 @@ class Validator
         }
     }
 
-    public function issetParam($value, $name){
-        if(!isset($value)){
+    public function issetParam($value, $name)
+    {
+        if (!isset($value)) {
             $this->error[] = 'Not found requirement parameter';
         }
     }
