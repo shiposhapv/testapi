@@ -35,6 +35,7 @@ $confVAlidator = [
 
 include_once 'Response.php';
 include_once 'Validator.php';
+include_once 'Curl.php';
 
 $metod = $_SERVER['REQUEST_METHOD'];
 $params = $_REQUEST;
