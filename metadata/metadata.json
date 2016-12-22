@@ -1,0 +1,67 @@
+{
+  "package": "",
+  "tagline": "",
+  "description": "",
+  "image": "",
+  "repo": "",
+  "keywords": [
+    "API"
+  ],
+  "accounts": {
+    "domain": "",
+    "credentials": [
+    ]
+  },
+  "blocks": [
+    {
+      "name": "sayHello",
+      "description": "",
+      "args": [
+        {
+          "name": "name",
+          "type": "String",
+          "info": "User name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "sayHelloInLanguage",
+      "description": "",
+      "args": [
+        {
+          "name": "name",
+          "type": "String",
+          "info": "User name",
+          "required": true
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "info": "languageOfResponse",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}

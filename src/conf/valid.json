@@ -1,0 +1,40 @@
+{
+  "blocks": [
+    {
+      "name": "sayHello",
+      "args": [
+        {
+          "name": "name",
+          "type": "String",
+          "info": "User name",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "sayHelloInLanguage",
+      "args": [
+        {
+          "name": "name",
+          "type": "String",
+          "info": "User name",
+          "required": true
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "info": "languageOfResponse",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
+
+//название
+//тип валидации
+//параметры валидатора лимиты или условия или регулярка
+//
+//дефолтный ответ
+//установка кастомного ответа
+
