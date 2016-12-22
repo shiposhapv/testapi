@@ -9,8 +9,14 @@
 class sayHelloInLanguage extends abstractBaseComtroller
 {
 
-    public function action()
+    public function action($params)
     {
+        $result = [
+            'status'=> 'Success',
+            'msg' => self::HELLO_STR. $params['name']
+        ];
+        $this->response->setStatus(200);
+        return $result;
     }
 
 

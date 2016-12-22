@@ -10,6 +10,7 @@ class sayHello extends abstractBaseComtroller
 {
 
     const HELLO_STR = 'Hello ';
+
     public function action($params)
     {
             $result = [
