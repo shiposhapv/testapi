@@ -17,4 +17,4 @@
 | Field             | Type       | Description
 |-------------------|------------|----------
 | name              | String     | User name
-| language          | String| languageOfResponse
+| language          | String     | languageOfResponse 'iw' \ 'ja' \ 'en' 

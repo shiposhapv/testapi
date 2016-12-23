@@ -48,7 +48,7 @@
         {
           "name": "language",
           "type": "String",
-          "info": "languageOfResponse",
+          "info": "languageOfResponse ['iw'|'ja'|'en']",
           "required": true
         }
       ],
