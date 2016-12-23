@@ -8,40 +8,35 @@
  */
 class sayHelloInLanguage extends abstractBaseComtroller
 {
-    const HELLO_STR = 'Hello ';
-    const googleApiKey = 'Hello ';
+    const HELLO_STR = 'Hello';
+    const GOOGLE_API_KEY = 'AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM';
+    const GOOGLE_URI_TRANSLATE = 'https://www.googleapis.com/language/translate/v2?';
 
     public function action($params)
     {
-        $text = self::HELLO_STR . $params['name'];
         $curl = new Curl();
         $data = [
-            'url' => 'https://www.googleapis.com/language/translate/v2?key=AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM&q=' . rawurlencode($text) . '&source=ru&target=' . $params['language'],
+            'url' => self::GOOGLE_URI_TRANSLATE,
             'data' => [
-                'q' => $text,
-                'key' => self::googleApiKey,
+                'q' => rawurlencode(self::HELLO_STR),
+                'key' => self::GOOGLE_API_KEY,
                 'target' => $params['language']
             ],
         ];
         $curl->setParameters($data);
         $curl->sendRequest();
-        $data = $curl->getRespons();
-        if (!empty($data) && isset($data["data"]['translations'][0])) {
+        $respons = $curl->getRespons();
+        if (!empty($data) && isset($respons["data"]['translations'][0])) {
             $result = [
                 'status' => 'Success',
-                'msg' => $data["data"]['translations'][0]['translatedText']
+                'msg' => $respons["data"]['translations'][0]['translatedText'] . ' ' . trim($params['name'])
             ];
-            $this->response->setStatus(200);
         } else {
-
             $result = [
                 'status' => '“Error”',
-                'msg' => $data['error']
+                'msg' => $respons['error']
             ];
-            $this->response->setStatus(500);
-            $this->response->setBody($result);
         }
-
         return $result;
     }
 

@@ -15,9 +15,8 @@ class sayHello extends abstractBaseComtroller
     {
             $result = [
                 'status'=> 'Success',
-                'msg' => self::HELLO_STR. $params['name']
+                'msg' => self::HELLO_STR. trim($params['name'])
             ];
-            $this->response->setStatus(200);
             return $result;
     }
 }

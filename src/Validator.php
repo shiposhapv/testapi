@@ -25,15 +25,11 @@ class Validator
 
     public function getResult()
     {
-
         foreach ($this->filters as $nameParams => $arrayFilters) {
             foreach ($arrayFilters as $kay => $setings) {
                 $this->$kay($this->params[$nameParams], $setings);
             }
-
         }
-
-
         if (!empty($this->error)) {
             return false;
         }
@@ -55,20 +51,18 @@ class Validator
         if (isset($params['max']) && $length > $params['max']) {
             $this->error[] = 'Name is too long';
         }
-
     }
 
     public function uniqueLetter($string, $count)
     {
-        $countLit = count(array_unique(str_split($string)));
-        if ($countLit<$count) {
-            $this->error[] = "Should contain at least $count different letters";
+        $countLit = count(array_unique(str_split(mb_strtolower(trim($string)))));
+        if ($countLit < $count) {
+            $this->error[] = "Please enter valid name";
         }
     }
 
     public function checkRegex($string, $regex)
     {
-
     }
 
     public function inArray($string, $array)

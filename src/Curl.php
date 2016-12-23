@@ -31,17 +31,30 @@ class Curl
         if (!empty($params['header'])) {
             $this->header = $params['header'];
         }
-
     }
 
     public function sendRequest()
     {
-        $handle = curl_init($this->url);
-        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($handle);
-        $this->respons = json_decode($response, true);
-        curl_close($handle);
-
+        if (!empty($this->url)) {
+            if ($this->metod = 'GET') {
+                if (!empty($this->data)) {
+                    $this->url = $this->url . http_build_query($this->data);
+                }
+                $handle = curl_init($this->url);
+            } else {
+                $handle = curl_init();
+                curl_setopt($handle, CURLOPT_URL, $this->url);
+                curl_setopt($handle, CURLOPT_POST, true);
+                curl_setopt($handle, CURLOPT_POSTFIELDS, $this->data);
+            }
+            if (!empty($this->header)) {
+                curl_setopt($handle, CURLOPT_HTTPHEADER, $this->header);
+            }
+            curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($handle);
+            $this->respons = json_decode($response, true);
+            curl_close($handle);
+        }
     }
 
     public function getRespons()
