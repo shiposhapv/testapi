@@ -6,7 +6,7 @@
  * Date: 22.12.2016
  * Time: 15:02
  */
-class abstractBaseComtroller
+class abstractBaseController
 {
     public $response;
 

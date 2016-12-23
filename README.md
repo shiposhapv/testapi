@@ -5,15 +5,14 @@
 1. Item two 
 
 ## testapi.sayHello
-TEST
+
 
 | Field             | Type       | Description
 |-------------------|------------|----------
 | name              | String     | User name
-| password          | credentials| User password
 
 ## testapi.sayHelloInLanguage.php
-TEST
+
 
 | Field             | Type       | Description
 |-------------------|------------|----------

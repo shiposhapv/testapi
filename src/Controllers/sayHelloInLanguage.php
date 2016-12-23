@@ -6,7 +6,7 @@
  * Date: 22.12.2016
  * Time: 13:45
  */
-class sayHelloInLanguage extends abstractBaseComtroller
+class sayHelloInLanguage extends abstractBaseController
 {
     const HELLO_STR = 'Hello';
     const GOOGLE_API_KEY = 'AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM';

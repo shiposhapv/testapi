@@ -11,6 +11,6 @@ include_once  __DIR__ . '/../src/Response.php';
 include_once  __DIR__ . '/../src/Request.php';
 include_once  __DIR__ . '/../src/Validator.php';
 include_once  __DIR__ . '/../src/Curl.php';
-include_once  __DIR__ . '/../src/Controllers/abstractBaseComtroller.php';
+include_once  __DIR__ . '/../src/Controllers/abstractBaseController.php';
 
 require __DIR__ . '/../src/Bootstrap.php';

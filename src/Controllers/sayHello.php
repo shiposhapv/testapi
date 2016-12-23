@@ -6,7 +6,7 @@
  * Date: 22.12.2016
  * Time: 13:22
  */
-class sayHello extends abstractBaseComtroller
+class sayHello extends abstractBaseController
 {
 
     const HELLO_STR = 'Hello ';
