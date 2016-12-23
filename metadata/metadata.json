@@ -1,21 +1,21 @@
 {
-  "package": "",
-  "tagline": "",
-  "description": "",
+  "package": "TEST",
+  "tagline": "TEST",
+  "description": "TEST",
   "image": "",
   "repo": "",
   "keywords": [
     "API"
   ],
   "accounts": {
-    "domain": "",
+    "domain": "testapi",
     "credentials": [
     ]
   },
   "blocks": [
     {
       "name": "sayHello",
-      "description": "",
+      "description": "TEST",
       "args": [
         {
           "name": "name",
@@ -26,18 +26,18 @@
       ],
       "callbacks": [
         {
-          "name": "error",
-          "info": "Error"
+          "status": "Error",
+          "msg": "Name is too short / Name is too long / Name is invalid / or both"
         },
         {
-          "name": "success",
-          "info": "Success"
+          "status": "Success",
+          "msg": "Hello NAME"
         }
       ]
     },
     {
       "name": "sayHelloInLanguage",
-      "description": "",
+      "description": "TEST",
       "args": [
         {
           "name": "name",
@@ -54,12 +54,12 @@
       ],
       "callbacks": [
         {
-          "name": "error",
-          "info": "Error"
+          "status": "Error",
+          "msg": "Name is too short / Name is too long / Name is invalid / or both"
         },
         {
-          "name": "success",
-          "info": "Success"
+          "status": "Success",
+          "msg": "שלום NAME"
         }
       ]
     }
