@@ -26,7 +26,7 @@ if (isset($arrayRouts[$metod][$path])) {
     if ($validation->getResult()) {
         $object = new $controller($response);
         $result = $object->action($params);
-        if($result['status'] == 'Success'){
+        if(isset($result['status']) && $result['status'] == 'Success'){
             $response->setStatus(200);
         }else{
             $response->setStatus(500);

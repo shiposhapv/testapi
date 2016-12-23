@@ -16,11 +16,8 @@ class metadata extends abstractBaseComtroller
             $file = file_get_contents($nameFile);
         }
         if (!empty($file)) {
-            $this->response->setStatus(200);
             $result = $file;
             return $result;
-        } else {
-            $this->response->setStatus(500);
         }
     }
 
